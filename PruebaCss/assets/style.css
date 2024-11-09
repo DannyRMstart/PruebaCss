@@ -1,0 +1,245 @@
+body {
+  font-family: "Quicksand", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('../assets/css/img/fondo de mi web.jpg');
+  background-size: cover;
+  box-sizing: border-box;
+  display: grid;
+  grid-template-areas:
+    "header header"
+    "menu container"
+    "footer footer";
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: auto 1fr auto;
+}
+
+header {
+  grid-area: header;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-image: url('../assets/css/img/fondo de banner.jpg');
+  background-size: cover;
+  background-position: center;
+  color: #3a1515;
+  text-align: center;
+  padding: 20px;
+  animation: fadeInDown 3s ease-in-out;
+}
+
+.header h1 {
+  margin: 0;
+  font-size: 50px;
+}
+
+.header i {
+  font-size: 50px;
+}
+
+.menu {
+  grid-area: menu;
+  display: flex;
+  flex-direction: column;
+  background-color: #333;
+  color: white;
+  animation: slideInLeft 1s ease-in-out;
+}
+
+.logo img {
+  width: 50%;
+  padding: 10px;
+  animation: rotate 3s linear infinite;
+}
+
+.menu-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  animation: flicker-in-1 2s linear both;
+}
+
+.menu-item {
+  padding: 15px;
+  border-bottom: 1px solid #444;
+  animation: pulse 2s infinite;
+}
+
+.menu-item a {
+  color: white;
+  text-decoration: none;
+}
+
+.menu-item a:hover {
+  background-color: #a8f129;
+  transform: rotate(45deg);
+}
+
+.container {
+  grid-area: container;
+  padding: 20px;
+  color: #76d9f0;
+  animation: fadeIn 2s ease-in-out;
+}
+
+section {
+  margin-bottom: 20px;
+  animation: fadeInUp 1.5s ease-in-out;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  animation: fadeInDown 1.5s ease-in-out;
+}
+
+.item {
+  flex: 1 1 calc(25% - 40px);
+  max-width: 200px;
+  text-align: center;
+  box-sizing: border-box;
+  padding: 10px;
+
+  border-radius: 10px;
+}
+
+.item img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 150px;
+}
+
+.animated-image {
+  animation: roll-in-left 0.6s ease-out both;
+}
+
+.buy-button {
+  background-color: #1e59da;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.buy-button:hover {
+  background-color: #45a049;
+}
+
+.footer {
+  grid-area: footer;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333;
+  color: white;
+  padding: 20px;
+  
+}
+.footer p, .footer a { animation: shake 0.5s infinite alternate;  }
+
+.contact-info, .social-links {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.social-links a {
+  color: white;
+  text-decoration: none;
+  margin: 5px 0;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); }
+  to { transform: translateX(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes roll-in-left {
+  0% {
+    transform: translateX(-800px) rotate(-540deg);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.rotating {
+  animation: rotate 3s linear infinite;
+
+}
+@keyframes shake { 
+  0% { transform: translateX(0); } 
+  25% { transform: translateX(-5px); } 
+  50% { transform: translateX(5px); } 
+  75% { transform: translateX(-5px); } 
+  100% { transform: translateX(0);   }   }
+@media (max-width: 768px) {
+  body {
+    grid-template-areas:
+      "header"
+      "menu"
+      "container"
+      "footer";
+    grid-template-columns: 1fr;
+  }
+
+  .menu {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .menu-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+  }
+
+  .menu-item {
+    flex: 1;
+    text-align: center;
+    border-bottom: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .gallery {
+    gap: 30px;
+  }
+
+  .item {
+    flex: 1 1 calc(20% - 40px);
+  }
+}
+ }
